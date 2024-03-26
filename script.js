@@ -47,11 +47,12 @@ function realpageAnimation(){
         end:"bottom bottom",
         scrub:1
         },
-        xPercent:-200,
+        xPercent:-300,
         ease:Power4  
     })
 }
 function teamAnimation(){
+
     document.querySelectorAll(".listelem")
 .forEach(function(el){
     el.addEventListener("mousemove",function(dets){
@@ -63,45 +64,84 @@ function teamAnimation(){
     })
 }) 
 }
-function paraAnimation(){
-    var clutter=""
-document.querySelector(".textpara").textContent.split("")
-.forEach(function(e){
-    if(e === " ")clutter+=`<span>&nbsp;</span>`
-clutter+=`<span >${e}</span>`
+function para1Animation () {
+    var cluter = ""
+var para1 = document.querySelector(".para1").textContent.split("")
+.forEach(function (e){
+    if (e === " ") cluter += `<span>&nbsp;</span>`
+    cluter += `<span>${e}</span>`
 })
-document.querySelector(".textpara").innerHTML=clutter;
 
-gsap.set(".textpara span",{opacity:.1})
-gsap.to(".textpara span",{
-    scrollTrigger:{
-        trigger:".para",
-        start:"top 60%",
-        end:"bottom 90%",
-        scrub:2,
+document.querySelector(".para1").innerHTML = cluter;
+ console.log(para1);
 
+ gsap.set(".para1 span",{
+    opacity:.1
+ })
+
+ gsap.to(".para1 span",{
+    scrollTrigger: {
+        trigger: ".managerPart1",
+        start: "top 70%",
+        end: "bottom 100%",
+        scrub: 2,
+        // markers:true,
     },
     opacity:1,
-    stagger:.03,
- ease:Power4
+    ease: Power4,
+    stagger:.3,
+ })
+
+}
+
+function para2Animation () {
+    var cluter = "";
+document.querySelector(".para2").textContent.split("")
+.forEach(function (e){
+    if (e === " ") cluter += `<span>&nbsp;</span>`
+    cluter += `<span >${e}</span>`
 })
+
+document.querySelector(".para2").innerHTML = cluter;
+
+ gsap.set(".para2 span",{
+    opacity:.1
+ })
+
+ gsap.to(".para2 span",{
+    scrollTrigger: {
+        trigger: ".managerPart2",
+        start: "top 70%",
+        end: "bottom 100%",
+        scrub: 2,
+        // markers:true,
+    },
+    opacity:1,
+    ease: Power4,
+    stagger:.3,
+ })
+
 }
 function loco(){
 (function () {
     const locomotiveScroll = new LocomotiveScroll();
 })();
 }
-function capsulesAnimation(){
-    gsap.to(".capsule:nth-child(2)",{
-        scrollTrigger:{
-            trigger:".capsules",
-            start:"top 70%",
-            end:"bottom bottom",
-            scrub:1,
-        },
-        y:0,
-        ease:Power4,
+function capsulsAnimation() { 
+    gsap.to(".capsule2",{
+        ease: Power4,
+        marginTop:"0",
+        rotate:"-16deg",
+        scrollTrigger: {
+            trigger: ".capusals",
+            start: "top 70%",
+            end: "bottom bottom",
+            scrub: 2,
+            // markers:true,
+        }
+    
     })
+
 }
 function bodycolorChange(){
     document.querySelectorAll(".section").forEach(function(e){
@@ -123,6 +163,7 @@ loco();
 homepage();
 realpageAnimation();
 teamAnimation();
-paraAnimation();
+para1Animation();
+para2Animation();
 capsulesAnimation();
 
